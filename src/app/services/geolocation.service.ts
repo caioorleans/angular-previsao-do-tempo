@@ -6,23 +6,30 @@ import { Coordinates } from '../models/Coordinates';
 })
 export class GeolocationService {
 
-  constructor() { }
+  coord:Coordinates = {
+    lat: 0,
+    long: 0
+  };
 
-  getCurrentLocation():Coordinates|null{
-    let coord:Coordinates = {
-      lat: 0,
-      long: 0
-    };
+  constructor() {
+    const currentLocation = this.getCurrentLocation();
+    if(currentLocation){
+      this.coord = currentLocation;
+    }
+  }
+
+  getCurrentLocation():Coordinates | null{
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-       coord.lat = position.coords.latitude;
-       coord.long = position.coords.longitude;
+       this.coord.lat = position.coords.latitude;
+       this.coord.long = position.coords.longitude;
       });
-      return coord;
+      return this.coord;
     }
-    else {
-     alert("Geolocation is not supported by this browser.");
-     return null;
-    }
+    return null;
+  }
+
+  getLocation():Coordinates{
+    return this.coord;
   }
 }
