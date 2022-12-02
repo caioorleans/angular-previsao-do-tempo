@@ -1,6 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+.wholePage {
+  height: 80vh;
 }
 
 .glass {
