@@ -4,11 +4,13 @@ import { Coordinates } from './models/Coordinates';
 import { WeatherService } from 'src/app/services/weather.service'
 import { ForecastResponse } from './models/forecastResponse';
 import { ForecastMainInfo } from './models/forecastMainInfo';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'angular-previsao-do-tempo';
   coordinates: Coordinates | null = null;
