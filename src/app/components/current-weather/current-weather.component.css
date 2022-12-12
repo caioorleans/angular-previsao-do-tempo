@@ -1,0 +1,37 @@
+.container__current-weather{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container__temperature{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#current-temperature{
+  margin: 0;
+  font-size: 70px;
+}
+
+.container__min-max-temperature{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-left: 2px solid black;
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+.container__min-max-temperature p{
+  margin:0;
+  font-size: 25px;
+}
+
+.current-weather{
+  display: flex;
+  flex-direction: row;
+}

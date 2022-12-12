@@ -3,7 +3,7 @@
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center">
 
-        <form class="col-6  mb-1 mb-lg-1 me-3 me-lg-3" role="search">
+        <form class="col-6 col-lg-4 mb-1 mb-lg-1 me-3 me-lg-3" role="search">
           <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search"
           (keyup.enter)="getForecastByCity($any($event.target).value)">
         </form>
@@ -18,10 +18,23 @@
   </header>
 
   <body>
+    <div class="container forecast__container glass">
+      <div class="row">
+        <div class="col">
+          <h2 class="city-name">Nome da Cidade</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <app-current-weather></app-current-weather>
+        </div>
+        <div class="col-sm-12 col-md-6"></div>
+      </div>
 
+    </div>
   </body>
 
-  <div class="container fixed-bottom">
+  <div class="container">
     <footer class="d-flex flex-wrap justify-content-center align-items-center  py-3 my-1 border-top">
       <ul class="nav col-md-4 justify-content-center list-unstyled d-flex">
         <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-twitter"></i></a></li>
