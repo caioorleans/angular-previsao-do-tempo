@@ -4,13 +4,13 @@
       <div class="d-flex flex-wrap align-items-center justify-content-center">
 
         <form class="col-6 col-lg-4 mb-1 mb-lg-1 me-3 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search"
-          (keyup.enter)="getForecastByCity($any($event.target).value)">
+          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Procurar por cidade" aria-label="Search"
+          (keyup.enter)="getCities($any($event.target).value)">
         </form>
 
         <div class="text-end mb-1 mb-lg-1 me-lg-3">
           <button type="button" class="btn btn-outline-light me-2"
-          (click)="getLocation()">Login</button>
+          (click)="getLocation()">Usar Localização</button>
         </div>
 
       </div>
@@ -18,19 +18,26 @@
   </header>
 
   <body>
-    <div class="container forecast__container glass">
-      <div class="row">
-        <div class="col">
-          <h2 class="city-name">Nome da Cidade</h2>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-6 col-md-8">
+          <div class="container forecast__container glass">
+            <div class="row">
+              <div class="col">
+                <h2 class="city-name">Nome da Cidade</h2>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-sm-12 col-md-6">
+                <app-current-weather></app-current-weather>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <app-custom-table></app-custom-table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <app-current-weather></app-current-weather>
-        </div>
-        <div class="col-sm-12 col-md-6"></div>
-      </div>
-
     </div>
   </body>
 
