@@ -1,11 +1,5 @@
-import { ForecastMainInfo } from "./forecastMainInfo"
-import { Temperature } from "./temperature"
-import { Weather } from "./weather"
+import { Forecast } from "./forecast"
 
-export type ForecastResponse={
-  cod: number,
-  list: ForecastMainInfo[],
-  city:{
-    name:string
-  }
+export type ForecastResponse = {
+  DailyForecasts: Forecast[]
 }

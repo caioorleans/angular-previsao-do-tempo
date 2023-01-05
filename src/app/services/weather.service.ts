@@ -19,11 +19,7 @@ export class WeatherService {
     this.apiKey = environment.weatherApiKey;
   }
 
-  getForecastByCoordinates(coordinates: Coordinates):Observable<ForecastResponse>{
-    return this.http.get<ForecastResponse>(`${this.baseUrl}lat=${coordinates.lat}&lon=${coordinates.long}&lang=pt_br&appid=${this.apiKey}`);
-  }
-
-  getForecastByCity(city: string){
-    return this.http.get<ForecastResponse>(`${this.baseUrl}q=${city}&lang=pt_br&appid=${this.apiKey}`);
+  getForecastByCityKey(cityKey: number){
+    return this.http.get<ForecastResponse>(`${this.baseUrl}/forecasts/v1/daily/5day/${cityKey}?apikey=${this.apiKey}&language=pt-br&metric=true`);
   }
 }
