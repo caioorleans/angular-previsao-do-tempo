@@ -1,0 +1,17 @@
+<header class="p-3 text-bg-dark">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center">
+
+      <form class="col-6 col-lg-4 mb-1 mb-lg-1 me-3 me-lg-3" role="search">
+        <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Procurar por cidade" aria-label="Search"
+        (keyup.enter)="sendCityName($any($event.target).value)">
+      </form>
+
+      <div class="text-end mb-1 mb-lg-1 me-lg-3">
+        <button type="button" class="btn btn-outline-light me-2"
+        (click)="getLocation()">Usar Localização</button>
+      </div>
+
+    </div>
+  </div>
+</header>

@@ -9,6 +9,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
 import { CustomTableComponent } from './components/custom-table/custom-table.component';
 import { TableColumnComponent } from './components/custom-table/table-column/table-column.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ForecastComponent } from './pages/forecast/forecast.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { TableColumnComponent } from './components/custom-table/table-column/tab
     CurrentWeatherComponent,
     CustomTableComponent,
     TableColumnComponent,
+    HeaderComponent,
+    FooterComponent,
+    ForecastComponent,
   ],
   imports: [
     BrowserModule,

@@ -33,6 +33,7 @@ export class AppComponent {
   }
 
   getCities(cityName: string) {
+    this.cities = [];
     this.cityService.getCities(cityName).subscribe({
       next: (res) => {
         res.forEach(element => {
