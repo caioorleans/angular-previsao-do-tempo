@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { City } from 'src/app/models/city';
 import { CityService } from 'src/app/services/city.service';
 
@@ -13,7 +13,7 @@ export class CidadesComponent implements OnInit {
   cityName:string | null = null;
   cities: City[] = [];
 
-  constructor(private route:ActivatedRoute, private cityService: CityService) { }
+  constructor(private route:ActivatedRoute,private router:Router, private cityService: CityService) { }
 
   ngOnInit(): void {
     this.cityName = this.route.snapshot.paramMap.get('cityName');
@@ -47,6 +47,10 @@ export class CidadesComponent implements OnInit {
       }
     });
     console.log(this.cities);
+  }
+
+  goToForecast(cityKey: number){
+    this.router.navigate(['forecast',cityKey]);
   }
 
 }

@@ -1,5 +1,5 @@
 <ul>
   <li *ngFor="let city of cities">
-    <app-city-card [city]="city"></app-city-card>
+    <app-city-card [city]="city" (click)="goToForecast(city.Key)"></app-city-card>
   </li>
 </ul>

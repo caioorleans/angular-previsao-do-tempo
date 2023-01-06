@@ -19,7 +19,7 @@ export class WeatherService {
     this.apiKey = environment.weatherApiKey;
   }
 
-  getForecastByCityKey(cityKey: number){
+  getForecastByCityKey(cityKey: string){
     return this.http.get<ForecastResponse>(`${this.baseUrl}/forecasts/v1/daily/5day/${cityKey}?apikey=${this.apiKey}&language=pt-br&metric=true`);
   }
 }

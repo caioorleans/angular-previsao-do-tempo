@@ -39,18 +39,10 @@ export class AppComponent {
       {
         next: (res) => {
           console.log(res);
-          this.getForecastByCityKey(res.Key)
         },
         error: (err) => {}
       }
     )
-  }
-
-  getForecastByCityKey(cityKey: number){
-    this.weatherService.getForecastByCityKey(cityKey).subscribe({
-      next: (res) => {console.log(res)},
-      error: (err) => {}
-    })
   }
 
   goToCities(cityName:string){
