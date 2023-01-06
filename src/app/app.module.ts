@@ -14,6 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ForecastComponent } from './pages/forecast/forecast.component';
 import { MessageComponent } from './pages/message/message.component';
 import { CidadesComponent } from './pages/cidades/cidades.component';
+import { CityCardComponent } from './components/city-card/city-card.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CidadesComponent } from './pages/cidades/cidades.component';
     ForecastComponent,
     MessageComponent,
     CidadesComponent,
+    CityCardComponent,
   ],
   imports: [
     BrowserModule,
