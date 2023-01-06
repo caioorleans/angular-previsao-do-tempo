@@ -12,6 +12,7 @@ import { TableColumnComponent } from './components/custom-table/table-column/tab
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ForecastComponent } from './pages/forecast/forecast.component';
+import { MessageComponent } from './pages/message/message.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ForecastComponent } from './pages/forecast/forecast.component';
     HeaderComponent,
     FooterComponent,
     ForecastComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
