@@ -4,6 +4,7 @@ import { Coordinates } from './models/Coordinates';
 import { WeatherService } from 'src/app/services/weather.service'
 import { CityService } from './services/city.service';
 import { City } from './models/city';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ export class AppComponent {
   constructor(
     private geolocationService: GeolocationService,
     private weatherService: WeatherService,
-    private cityService: CityService) { }
+    private cityService: CityService,
+    private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -30,33 +32,6 @@ export class AppComponent {
       console.log(this.coordinates)
       this.getCityByCoordinate(this.coordinates);
     }
-  }
-
-  getCities(cityName: string) {
-    this.cities = [];
-    this.cityService.getCities(cityName).subscribe({
-      next: (res) => {
-        res.forEach(element => {
-          let city: City = {
-            Key: element.Key,
-            LocalizedName: element.LocalizedName,
-            Country: {
-              ID: element.Country.ID,
-              LocalizedName: element.Country.LocalizedName
-            },
-            AdministrativeArea: {
-              ID: element.AdministrativeArea.ID,
-              LocalizedName: element.AdministrativeArea.LocalizedName
-            }
-          }
-          this.cities.push(city);
-        })
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
-    console.log(this.cities);
   }
 
   getCityByCoordinate(coordinates:Coordinates){
@@ -76,5 +51,9 @@ export class AppComponent {
       next: (res) => {console.log(res)},
       error: (err) => {}
     })
+  }
+
+  goToCities(cityName:string){
+    this.router.navigate(['cities',cityName])
   }
 }

@@ -13,9 +13,7 @@ export class MessageComponent implements OnInit {
   constructor(private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.message = params['message'];
-    })
+    this.message = this.route.snapshot.paramMap.get('message');
     if(!this.message){
       this.message = "Faça uma busca pela cidade ou use sua localização";
     }

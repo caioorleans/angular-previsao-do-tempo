@@ -10,14 +10,16 @@ import { CityService } from 'src/app/services/city.service';
 })
 export class CidadesComponent implements OnInit {
 
+  cityName:string | null = null;
   cities: City[] = [];
 
   constructor(private route:ActivatedRoute, private cityService: CityService) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.getCities(params['cityName']);
-    });
+    this.cityName = this.route.snapshot.paramMap.get('cityName');
+    if(this.cityName){
+      this.getCities(this.cityName);
+    }
   }
 
   getCities(cityName: string) {

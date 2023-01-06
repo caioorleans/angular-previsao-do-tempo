@@ -5,10 +5,10 @@ import { ForecastComponent } from './pages/forecast/forecast.component';
 import { MessageComponent } from './pages/message/message.component';
 
 const routes: Routes = [
-  {path:'forecast', component: ForecastComponent},
-  {path:'message', component: MessageComponent},
-  {path:'cities', component: CidadesComponent},
-  {path:'', redirectTo:'/message', pathMatch:'full'}
+  {path:'forecast/:cityKey', component: ForecastComponent},
+  {path:'message/:message', component: MessageComponent},
+  {path:'cities/:cityName', component: CidadesComponent},
+  {path:'', redirectTo:'/message/', pathMatch:'full'}
 ];
 
 @NgModule({
