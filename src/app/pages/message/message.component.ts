@@ -17,7 +17,7 @@ export class MessageComponent implements OnInit {
       this.message = params['message'];
     })
     if(!this.message){
-      this.message = "Faça uma busca pela cidade ou use sua localização"
+      this.message = "Faça uma busca pela cidade ou use sua localização";
     }
   }
 
