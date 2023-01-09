@@ -1,11 +1,11 @@
 export type Forecast = {
   Date: string,
   Temperature: {
-    Minimun: {
+    Minimum: {
       Value: number,
       Unit: string
     },
-    Maximun: {
+    Maximum: {
       Value: number,
       Unit: string
     }

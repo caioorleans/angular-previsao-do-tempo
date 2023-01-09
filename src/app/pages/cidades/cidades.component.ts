@@ -46,7 +46,6 @@ export class CidadesComponent implements OnInit {
         console.log(err);
       }
     });
-    console.log(this.cities);
   }
 
   goToForecast(cityKey: number){

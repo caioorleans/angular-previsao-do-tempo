@@ -6,10 +6,10 @@
   </div>
   <div class="row align-items-center">
     <div class="col-sm-12 col-md-6">
-      <app-current-weather></app-current-weather>
+      <app-current-weather [weather]="forecast[0]" [currentConditions]="currentConditions" ></app-current-weather>
     </div>
     <div class="col-sm-12 col-md-6">
-      <app-custom-table></app-custom-table>
+      <app-custom-table [forecasts]="forecast.slice(1)"></app-custom-table>
     </div>
   </div>
 

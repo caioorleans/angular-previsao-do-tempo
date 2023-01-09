@@ -29,7 +29,6 @@ export class AppComponent {
   getLocation() {
     this.coordinates = this.geolocationService.getLocation();
     if (this.coordinates) {
-      console.log(this.coordinates)
       this.getCityByCoordinate(this.coordinates);
     }
   }

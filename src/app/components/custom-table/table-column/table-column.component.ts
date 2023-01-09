@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Forecast } from 'src/app/models/forecast';
 
 @Component({
   selector: 'app-table-column',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table-column.component.css']
 })
 export class TableColumnComponent implements OnInit {
+
+
+  @Input() forecast!:Forecast
 
   constructor() { }
 

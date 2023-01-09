@@ -1,14 +1,14 @@
 <div class="container__current-weather">
   <div class="container__temperature">
-    <p id="current-temperature">31°</p>
+    <p id="current-temperature">{{currentConditions.Temperature.Metric.Value}}°{{currentConditions.Temperature.Metric.Unit}}</p>
     <div class="container__min-max-temperature">
-      <p>31°</p>
-      <p>26°</p>
+      <p>{{weather.Temperature.Maximum.Value}}°{{weather.Temperature.Maximum.Unit}}</p>
+      <p>{{weather.Temperature.Minimum.Value}}°{{weather.Temperature.Minimum.Unit}}</p>
     </div>
   </div>
   <div class="current-weather">
-    <p>Parcialmente ensolarado</p>
+    <p>{{currentConditions.WeatherText}}</p>
     <img>
   </div>
-  <p class="real-feel">Sensação Térmica: 36°</p>
+  <p class="real-feel">Sensação Térmica: {{currentConditions.RealFeelTemperature.Metric.Value}}°{{currentConditions.RealFeelTemperature.Metric.Unit}}</p>
 </div>

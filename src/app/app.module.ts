@@ -15,6 +15,7 @@ import { ForecastComponent } from './pages/forecast/forecast.component';
 import { MessageComponent } from './pages/message/message.component';
 import { CidadesComponent } from './pages/cidades/cidades.component';
 import { CityCardComponent } from './components/city-card/city-card.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { CityCardComponent } from './components/city-card/city-card.component';
     FormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

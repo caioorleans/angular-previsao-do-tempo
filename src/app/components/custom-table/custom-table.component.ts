@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Forecast } from 'src/app/models/forecast';
 
 @Component({
   selector: 'app-custom-table',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./custom-table.component.css']
 })
 export class CustomTableComponent implements OnInit {
+
+  @Input() forecasts!:Forecast[]
 
   constructor() { }
 
