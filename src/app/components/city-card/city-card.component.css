@@ -1,0 +1,13 @@
+.container__city-card{
+  display: flex;
+  min-height: 50px;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.container__city-card p{
+  margin: 0;
+}

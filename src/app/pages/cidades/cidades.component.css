@@ -1,0 +1,9 @@
+.container{
+  margin-top: 10px;
+}
+
+.container__card{
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}

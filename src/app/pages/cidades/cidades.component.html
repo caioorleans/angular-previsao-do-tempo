@@ -1,5 +1,9 @@
-<ul>
-  <li *ngFor="let city of cities">
-    <app-city-card [city]="city" (click)="goToForecast(city.Key)"></app-city-card>
-  </li>
-</ul>
+<div class="container">
+  <div class="row justify-content-center">
+    <div *ngFor="let city of cities" class="container__card col-sm-8 col-md-10 col-lg-8">
+      <div class="container forecast__container glass">
+        <app-city-card [city]="city" (click)="goToForecast(city.Key)"></app-city-card>
+      </div>
+    </div>
+  </div>
+</div>
