@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { City } from 'src/app/models/city';
 import { CityService } from 'src/app/services/city.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-cidades',
@@ -13,7 +14,7 @@ export class CidadesComponent implements OnInit {
   cityName:string | null = null;
   cities: City[] = [];
 
-  constructor(private route:ActivatedRoute,private router:Router, private cityService: CityService) { }
+  constructor(private route:ActivatedRoute,private router:Router, private cityService: CityService, private storageService:StorageService) { }
 
   ngOnInit(): void {
     this.cityName = this.route.snapshot.paramMap.get('cityName');
@@ -43,13 +44,14 @@ export class CidadesComponent implements OnInit {
         })
       },
       error: (err) => {
-        console.log(err);
+        this.router.navigate(["message",err]);
       }
     });
   }
 
-  goToForecast(cityKey: number){
-    this.router.navigate(['forecast',cityKey]);
+  goToForecast(city:City){
+    this.storageService.setData("city",city);
+    this.router.navigate(['forecast']);
   }
 
 }

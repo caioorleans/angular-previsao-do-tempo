@@ -24,6 +24,7 @@ export class GeolocationService {
        this.coord.lat = position.coords.latitude;
        this.coord.long = position.coords.longitude;
       });
+      console.log(this.coord)
       return this.coord;
     }
     return null;

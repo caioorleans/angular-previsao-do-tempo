@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { GeolocationService } from 'src/app/services/geolocation.service'
 import { Coordinates } from './models/Coordinates';
-import { WeatherService } from 'src/app/services/weather.service'
 import { CityService } from './services/city.service';
 import { City } from './models/city';
 import { Router } from '@angular/router';
+import { StorageService } from './services/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -19,9 +19,9 @@ export class AppComponent {
 
   constructor(
     private geolocationService: GeolocationService,
-    private weatherService: WeatherService,
     private cityService: CityService,
-    private router:Router) { }
+    private router:Router,
+    private storageService:StorageService) { }
 
   ngOnInit(): void {
   }
@@ -37,9 +37,12 @@ export class AppComponent {
     this.cityService.getCityByCoordinates(coordinates).subscribe(
       {
         next: (res) => {
-          console.log(res);
+          this.storageService.setData("city",res);
+          this.router.navigate(['forecast']);
         },
-        error: (err) => {}
+        error: (err) => {
+          this.router.navigate(["message",err])
+        }
       }
     )
   }

@@ -1,6 +1,6 @@
 <div class="container__table-column">
   <p class="date__table-column">{{forecast.Date}}</p>
   <img src="assets/icons/{{forecast.Day.Icon}}.png">
-  <p>{{forecast.Temperature.Maximum.Value}}°{{forecast.Temperature.Maximum.Unit}}</p>
-  <p>{{forecast.Temperature.Minimum.Value}}°{{forecast.Temperature.Maximum.Unit}}</p>
+  <p>{{forecast.Temperature.Maximum.Value | number: '1.0-0'}}°{{forecast.Temperature.Maximum.Unit}}</p>
+  <p>{{forecast.Temperature.Minimum.Value | number: '1.0-0'}}°{{forecast.Temperature.Maximum.Unit}}</p>
 </div>

@@ -1,9 +1,10 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { City } from 'src/app/models/city';
 import { CurrentConditions } from 'src/app/models/currentConditions';
 import { Forecast } from 'src/app/models/forecast';
-import { ForecastResponse } from 'src/app/models/forecastResponse';
+import { StorageService } from 'src/app/services/storage.service';
 import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
@@ -31,26 +32,31 @@ export class ForecastComponent implements OnInit {
     }
   };
   cityKey:string | null = null;
+  cityName:string | null = null;
+  administrativeArea:string | null = null;
 
-  constructor(private route:ActivatedRoute, private weatherService:WeatherService, private datePipe: DatePipe) { }
+  constructor(private route:ActivatedRoute, private weatherService:WeatherService, private datePipe: DatePipe,
+    private storageService:StorageService,
+    private router:Router) { }
 
   ngOnInit(): void {
-    this.cityKey = this.route.snapshot.paramMap.get('cityKey');
+    let city:City = this.storageService.getData("city");
+    this.cityName = city.LocalizedName;
+    this.cityKey = city.Key.toString();
+    this.administrativeArea = city.AdministrativeArea.LocalizedName;
     if(this.cityKey){
       this.getCurrentConditions(this.cityKey);
       this.getForecastByCityKey(this.cityKey);
     }
-    console.log(this.currentConditions)
   }
 
   getCurrentConditions(cityKey: string){
     this.weatherService.getCurrentConditionsByCityKey(cityKey).subscribe({
       next: (res) => {
-        console.log(res)
         this.currentConditions = res[0]
       },
       error: (err) => {
-        console.log(err)
+        this.router.navigate(["message",err]);
       }
     })
   }
@@ -88,7 +94,7 @@ export class ForecastComponent implements OnInit {
         });
       },
       error: (err) => {
-        console.log(err)
+        this.router.navigate(["message",err])
       }
     })
   }
