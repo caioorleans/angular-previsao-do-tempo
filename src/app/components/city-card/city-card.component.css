@@ -9,6 +9,7 @@
 }
 
 .container__city-card:hover{
+  cursor: pointer;
   background-color: rgb(201, 201, 201);
 }
 
