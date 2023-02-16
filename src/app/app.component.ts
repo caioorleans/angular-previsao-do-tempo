@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GeolocationService } from 'src/app/services/geolocation.service'
+import { GeolocationService } from './services/geolocation.service'
 import { Coordinates } from './models/Coordinates';
 import { CityService } from './services/city.service';
 import { City } from './models/city';

@@ -2,7 +2,6 @@ import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {environment} from 'src/environments/environment';
-import { Coordinates } from 'src/app/models/Coordinates';
 import { ForecastResponse } from '../models/forecastResponse';
 import { CurrentConditions } from '../models/currentConditions';
 
