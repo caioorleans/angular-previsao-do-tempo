@@ -25,7 +25,6 @@ export class HeaderComponent implements OnInit {
   getLocation() {
     let coordinates = this.geolocationService.getLocation();
     if (this.coordinates) {
-      console.log(this.coordinates)
       this.coordinates.emit(coordinates);
     }
   }
