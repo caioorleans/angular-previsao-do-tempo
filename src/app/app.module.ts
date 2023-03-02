@@ -12,10 +12,12 @@ import { TableColumnComponent } from './components/custom-table/table-column/tab
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ForecastComponent } from './pages/forecast/forecast.component';
-import { MessageComponent } from './pages/message/message.component';
 import { CidadesComponent } from './pages/cidades/cidades.component';
 import { CityCardComponent } from './components/city-card/city-card.component';
 import { DatePipe } from '@angular/common';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { UnespectedErrorComponent } from './pages/unespected-error/unespected-error.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,11 @@ import { DatePipe } from '@angular/common';
     HeaderComponent,
     FooterComponent,
     ForecastComponent,
-    MessageComponent,
     CidadesComponent,
     CityCardComponent,
+    NotFoundComponent,
+    UnespectedErrorComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { City } from 'src/app/models/city';
 import { CurrentConditions } from 'src/app/models/currentConditions';
 import { Forecast } from 'src/app/models/forecast';
+import { RequestError } from 'src/app/models/requestError';
 import { StorageService } from 'src/app/services/storage.service';
 import { WeatherService } from 'src/app/services/weather.service';
 
@@ -16,7 +17,7 @@ export class ForecastComponent implements OnInit {
 
   forecast: Forecast[] = [];
   currentConditions: CurrentConditions = {
-    WeatherText: "Pinto grande",
+    WeatherText: "",
     WeatherIcon: 0,
     Temperature: {
       Metric: {
@@ -93,8 +94,13 @@ export class ForecastComponent implements OnInit {
           this.forecast.push(daylyForecast);
         });
       },
-      error: (err) => {
-        this.router.navigate(["message",err])
+      error: (err:RequestError) => {
+        if(err.Code === "404"){
+          this.router.navigate(["not-found"]);
+        }
+        else{
+          this.router.navigate(["error"]);
+        }
       }
     })
   }

@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
+    <h2 *ngIf="cities.length === 0">Nenhuma cidade chamada "{{cityName}}" encontrada</h2>
     <div *ngFor="let city of cities" class="container__card col-sm-8 col-md-10 col-lg-8">
       <div class="container forecast__container glass">
         <app-city-card [city]="city" (click)="goToForecast(city)"></app-city-card>

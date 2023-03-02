@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { City } from 'src/app/models/city';
+import { RequestError } from 'src/app/models/requestError';
 import { CityService } from 'src/app/services/city.service';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -43,8 +44,13 @@ export class CidadesComponent implements OnInit {
           this.cities.push(city);
         })
       },
-      error: (err) => {
-        this.router.navigate(["message",err]);
+      error: (err:RequestError) => {
+        if(err.Code === "404"){
+          this.router.navigate(["not-found"]);
+        }
+        else{
+          this.router.navigate(["error"]);
+        }
       }
     });
   }

@@ -5,6 +5,7 @@ import { CityService } from './services/city.service';
 import { City } from './models/city';
 import { Router } from '@angular/router';
 import { StorageService } from './services/storage.service';
+import { RequestError } from './models/requestError';
 
 @Component({
   selector: 'app-root',
@@ -40,14 +41,19 @@ export class AppComponent {
           this.storageService.setData("city",res);
           this.router.navigate(['forecast']);
         },
-        error: (err) => {
-          this.router.navigate(["message",err])
+        error: (err: RequestError) => {
+          if(err.Code === "404"){
+            this.router.navigate(["not-found"]);
+          }
+          else{
+            this.router.navigate(["error"]);
+          }
         }
       }
     )
   }
 
   goToCities(cityName:string){
-    this.router.navigate(['cities',cityName])
+    this.router.navigate(['cities',cityName]);
   }
 }
