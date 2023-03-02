@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { Coordinates } from 'src/app/models/Coordinates';
 import { GeolocationService } from 'src/app/services/geolocation.service';
 
@@ -12,9 +13,13 @@ export class HeaderComponent implements OnInit {
   @Output() coordinates =  new EventEmitter<Coordinates>();
   @Output() cityName = new EventEmitter<string>();
 
-  constructor(private geolocationService: GeolocationService) { }
+  currentUrl:string = "";
+  reload:boolean = false;
+
+  constructor(private geolocationService: GeolocationService, private router:Router) { }
 
   ngOnInit(): void {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   sendCityName(cityName: string){

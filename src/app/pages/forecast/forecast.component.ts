@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { City } from 'src/app/models/city';
 import { CurrentConditions } from 'src/app/models/currentConditions';
 import { Forecast } from 'src/app/models/forecast';
@@ -36,9 +36,11 @@ export class ForecastComponent implements OnInit {
   cityName:string | null = null;
   administrativeArea:string | null = null;
 
-  constructor(private route:ActivatedRoute, private weatherService:WeatherService, private datePipe: DatePipe,
+  constructor(private weatherService:WeatherService, private datePipe: DatePipe,
     private storageService:StorageService,
-    private router:Router) { }
+    private router:Router) {
+
+    }
 
   ngOnInit(): void {
     let city:City = this.storageService.getData("city");
